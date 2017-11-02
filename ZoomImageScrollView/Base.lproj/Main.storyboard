@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Zoom Image-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ZoomImage" customModule="ZoomImageScrollView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="amB-hq-ymW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageZoom" translatesAutoresizingMaskIntoConstraints="NO" id="FPh-FE-M81">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FPh-FE-M81" secondAttribute="trailing" id="318-6i-lb6"/>
+                                    <constraint firstItem="FPh-FE-M81" firstAttribute="centerY" secondItem="amB-hq-ymW" secondAttribute="centerY" id="D9j-y5-V7e"/>
+                                    <constraint firstItem="FPh-FE-M81" firstAttribute="leading" secondItem="amB-hq-ymW" secondAttribute="leading" id="FGg-by-c3j"/>
+                                    <constraint firstItem="FPh-FE-M81" firstAttribute="top" secondItem="amB-hq-ymW" secondAttribute="top" id="RaT-Yz-r5B"/>
+                                    <constraint firstItem="FPh-FE-M81" firstAttribute="centerX" secondItem="amB-hq-ymW" secondAttribute="centerX" id="d3i-Qy-OLC"/>
+                                    <constraint firstAttribute="bottom" secondItem="FPh-FE-M81" secondAttribute="bottom" id="tgm-Tn-b3l"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="amB-hq-ymW" secondAttribute="bottom" id="8vz-tG-Try"/>
+                            <constraint firstItem="amB-hq-ymW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HHB-Pa-d65"/>
+                            <constraint firstItem="amB-hq-ymW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="No6-GW-0SW"/>
+                            <constraint firstItem="amB-hq-ymW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X72-9D-EoU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="imageZoom" destination="FPh-FE-M81" id="1JU-qG-Dpw"/>
+                        <outlet property="scrollView" destination="amB-hq-ymW" id="d0q-Et-Svi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="ImageZoom" width="360" height="388"/>
+    </resources>
 </document>
